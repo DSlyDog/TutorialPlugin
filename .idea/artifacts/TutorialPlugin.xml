@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TutorialPlugin">
+    <output-path>G:/Testing Servers/Tutorial/plugins</output-path>
+    <root id="archive" name="TutorialPlugin.jar">
+      <element id="module-output" name="TutorialPlugin" />
+    </root>
+  </artifact>
+</component>

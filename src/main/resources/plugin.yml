@@ -1,0 +1,46 @@
+name: TutorialPlugin
+version: ${project.version}
+main: net.whispwriting.tutorialplugin.TutorialPlugin
+api-version: "1.13"
+prefix: TutoPL
+authors: [Whisp]
+description: An example plugin for YouTube
+website: https://whispwriting.net
+
+commands:
+  heal:
+    description: Heals and satiates the player
+    usage: /heal
+  fly:
+    description: Fly around the server
+    usage: /fly
+  sethome:
+    description: Set a home location
+    usage: /sethome
+  home:
+    description: teleport to a home
+    usage: /home
+  homes:
+    description: lists your set homes
+    usage: /homes
+  delhome:
+    description: delete a home
+    usage: /delhome
+
+permissions:
+  TutorialPlugin.heal:
+    description: Allows using /heal
+    default: op
+  TutorialPlugin.fly:
+    description: allows using /fly
+    default: op
+  TutorialPlugin.home:
+    description: allows using /sethome, /home. and /homes
+    default: true
+  TutorialPlugin.*:
+    description: wildcard permission
+    default: op
+    children:
+      TutorialPlugin.heal: true
+      TutorialPlugin.fly: true
+      TutorialPlugin.home: true
