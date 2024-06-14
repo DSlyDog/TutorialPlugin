@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TeleportPlus">
+    <output-path>$PROJECT_DIR$/../Build/TeleportPlus</output-path>
+    <root id="archive" name="TeleportPlus.jar">
+      <element id="module-output" name="TutorialPlugin" />
+    </root>
+  </artifact>
+</component>

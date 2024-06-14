@@ -1,6 +1,6 @@
-name: TutorialPlugin
+name: TeleportPlus
 version: ${project.version}
-main: net.whispwriting.tutorialplugin.TutorialPlugin
+main: net.whispwriting.teleportplus.TeleportPlus
 api-version: "1.13"
 prefix: TutoPL
 authors: [Whisp]
@@ -8,12 +8,6 @@ description: An example plugin for YouTube
 website: https://whispwriting.net
 
 commands:
-  heal:
-    description: Heals and satiates the player
-    usage: /heal
-  fly:
-    description: Fly around the server
-    usage: /fly
   sethome:
     description: Set a home location
     usage: /sethome
@@ -26,21 +20,71 @@ commands:
   delhome:
     description: delete a home
     usage: /delhome
+  setwarp:
+    description: set a warp location
+    usage: /setwarp
+  warp:
+    description: teleport to a warp location
+    usage: /warp
+  warps:
+    description: list the available warps
+    usage: /warps
+  delwarp:
+    description: delete a warp from the list
+    usage: /delwarp
+  portal:
+    description: adding or removing a portal
+    usage: /portal
+  spawn:
+    description: teleport to spawn
+    usage: /spawn
+  setspawn:
+    description: set the spawnpoint
+    usage: /setspawn
 
 permissions:
-  TutorialPlugin.heal:
-    description: Allows using /heal
-    default: op
-  TutorialPlugin.fly:
-    description: allows using /fly
-    default: op
-  TutorialPlugin.home:
-    description: allows using /sethome, /home. and /homes
+  TeleportPlus.home:
+    description: allows using /sethome, /delhome, /home. and /homes
     default: true
-  TutorialPlugin.*:
+  TeleportPlus.home.multiple:
+    description: determines the home count
+    default: false
+  TeleportPlus.setwarp:
+    description: allows using /setwarp
+    default: op
+  TeleportPlus.warp:
+    description: allows using /warp
+    default: op
+  TeleportPlus.warps:
+    description: allows using /warps
+    default: op
+  TeleportPlus.delwarp:
+    description: allows using /delwarp
+    default: op
+  TeleportPlus.warp.*:
+    description: allows using /setwarp, /warp, /warps, and /delwarp
+    default: op
+    children:
+      TeleportPlus.setwarp: true
+      TeleportPlus.warp: true
+      TeleportPlus.warps: true
+      TeleportPlus.delwarp: true
+  TeleportPlus.portal.admin:
+    description: allows using /portal
+    default: op
+  TeleportPlus.setspawn:
+    description: allows using /setspawn
+    default: op
+  TeleportPlus.spawn:
+    description: allows using /spawn
+    default: true
+  TeleportPlus.*:
     description: wildcard permission
     default: op
     children:
-      TutorialPlugin.heal: true
-      TutorialPlugin.fly: true
-      TutorialPlugin.home: true
+      TeleportPlus.home: true
+      TeleportPlus.warp.*: true
+      TeleportPlus.portal.admin: true
+      TeleportPlus.spawn: true
+      TeleportPlus.setspawn: true
+

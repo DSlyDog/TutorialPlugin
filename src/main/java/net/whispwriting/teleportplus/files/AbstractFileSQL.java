@@ -1,21 +1,21 @@
-package net.whispwriting.tutorialplugin.files;
+package net.whispwriting.teleportplus.files;
 
-import net.whispwriting.tutorialplugin.TutorialPlugin;
+import net.whispwriting.teleportplus.TeleportPlus;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
 
-public class AbstractFile {
+public class AbstractFileSQL {
 
-    protected TutorialPlugin plugin;
+    protected TeleportPlus plugin;
     private File file;
     protected FileConfiguration config;
 
-    public AbstractFile(TutorialPlugin pl, String filename){
+    public AbstractFileSQL(TeleportPlus pl, String filename, String dir){
         plugin = pl;
-        file = new File(pl.getDataFolder(), filename);
+        file = new File(pl.getDataFolder() + dir, filename);
         if (!file.exists()){
             try{
                 file.createNewFile();
@@ -23,7 +23,6 @@ public class AbstractFile {
                 e.printStackTrace();
             }
         }
-        config = YamlConfiguration.loadConfiguration(file);
     }
 
     public void save(){
@@ -34,12 +33,8 @@ public class AbstractFile {
         }
     }
 
-    public FileConfiguration get(){
-        return config;
-    }
-
-    public void reload(){
-        config = YamlConfiguration.loadConfiguration(file);
+    public File get(){
+        return file;
     }
 
 }
